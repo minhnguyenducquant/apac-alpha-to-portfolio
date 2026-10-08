@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APAC Alpha-to-Portfolio — Momentum &amp; Low-Risk across seven Asia-Pacific equity markets</title>
+<meta name="description" content="Survivor-biased exploratory research microsite: do Momentum and Low-Risk signals generalize across APAC equities, and can they be translated into an economically useful out-of-sample portfolio?">
+<link rel="icon" type="image/png" href="assets/figures/01_price_validity_by_market.png">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <p class="eyebrow">APAC Alpha-to-Portfolio</p>
+    <h1 class="hero-question">Do Momentum and Low-Risk signals generalize across APAC equities, and can they be translated into an economically useful OOS portfolio?</h1>
+    <ul class="badges" aria-label="Study scope">
+      <li>7 markets</li>
+      <li>210 stocks</li>
+      <li>2010&#8211;2026 research</li>
+      <li>2016&#8211;2026 OOS / 2026 partial</li>
+      <li>Momentum + Low Risk</li>
+      <li class="badge-warn">Survivor-biased exploratory sample</li>
+    </ul>
+    <p class="lede">A small, pre-specified set of equity return predictors is tested on a monthly
+      panel of CN, HK, IN, JP, KR, SG and TW, then translated into long-only country-sleeve
+      portfolios and evaluated out-of-sample in USD, net of illustrative frictions and dated taxes.
+      Momentum is the strongest signal and the only member of the primary family to survive the
+      project&rsquo;s own multiplicity correction; Low Risk lowers realised volatility but its return
+      premium is inverted in this panel; and the long-only optimizer does not beat equal-weight 1/N
+      out-of-sample. No result here is a bias-free historical APAC universe, and the sample
+      carries survivorship bias.</p>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Section navigation">
+  <div class="wrap">
+    <a href="#primary">Headline</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#data">Data &amp; cleaning</a>
+    <a href="#signals">Signals</a>
+    <a href="#testing">Testing</a>
+    <a href="#validation">External validation</a>
+    <a href="#oos">OOS flow</a>
+    <a href="#results">Key results</a>
+    <a href="#costs">Costs &amp; robustness</a>
+    <a href="#limitations">Limitations</a>
+    <a href="#method-literature">Method &amp; literature</a>
+    <a href="#repro">Reproducibility</a>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+
+  <!-- 1. HEADLINE ------------------------------------------------------- -->
+  <section id="primary" class="section">
+    <h2>Headline evidence</h2>
+    <p class="table-scroll-cue" aria-hidden="true">Swipe table &rarr;</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Headline OOS performance table, scroll horizontally for all columns">
+      <table class="data-table primary-table" id="primary-table">
+        <caption>Benchmark / 1/N / Momentum / Low Risk / Composite / Optimized — OOS 2016-01..2026-09 (129 months; 2026 partial)</caption>
+        <thead>
+          <tr><th scope="col">Portfolio</th><th scope="col">Net CAGR</th><th scope="col">Volatility</th><th scope="col">Sharpe</th><th scope="col">Max drawdown</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Benchmark (6-mkt)</th><td>9.7%</td><td>16.4%</td><td>0.51</td><td>&#8722;28.7%</td></tr>
+          <tr><th scope="row">1/N</th><td>15.9%</td><td>15.5%</td><td>0.89</td><td>&#8722;20.5%</td></tr>
+          <tr><th scope="row">Momentum</th><td>22.6%</td><td>18.7%</td><td>1.07</td><td>&#8722;25.6%</td></tr>
+          <tr><th scope="row">Low Risk</th><td>11.5%</td><td>12.9%</td><td>0.74</td><td>&#8722;26.3%</td></tr>
+          <tr><th scope="row">Composite</th><td>14.1%</td><td>14.0%</td><td>0.85</td><td>&#8722;24.3%</td></tr>
+          <tr><th scope="row">Optimized</th><td>12.5%</td><td>13.9%</td><td>0.76</td><td>&#8722;21.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source">Calculation from net OOS portfolio accounting</p>
+    <p class="source method-source">Method note. Displayed &ldquo;CAGR&rdquo; is net CAGR from
+      NetReturn (net of 15&nbsp;bps friction + dated taxes), not gross CAGR. Benchmark is uncharged
+      and equal-country across the six available markets because China benchmark history is
+      inadequate.</p>
+
+    <h3 class="conclusions-title">Three conclusions</h3>
+    <div class="conclusion-grid">
+      <article class="conclusion-card">
+        <h4>Momentum is the strongest signal and survives the project's own correction.</h4>
+        <p>Pooled country-equal rank IC <strong>0.0331</strong>; Fama&ndash;MacBeth slope
+          <strong>0.0031</strong> (NW HAC(6) t&nbsp;=&nbsp;<strong>3.30</strong>) — the only member of the
+          four-test primary family that survives the Sidak/Bonferroni correction. Q5&#8722;Q1 is positive in
+          <strong>6 of 7</strong> markets (India marginally negative). Net OOS Momentum CAGR
+          <strong>22.6%</strong>, Sharpe <strong>1.07</strong>.</p>
+      </article>
+      <article class="conclusion-card">
+        <h4>Low Risk lowers volatility but its premium is inverted in this panel.</h4>
+        <p>LOWRISK IC <strong>0.0022</strong>; Fama&ndash;MacBeth slope <strong>&#8722;0.0026</strong>
+          (NW HAC(6) t&nbsp;=&nbsp;<strong>&#8722;2.31</strong>). Q5&#8722;Q1 is negative in
+          <strong>7 of 7</strong> markets — high-volatility names out-returned low-vol names. The sleeve's
+          value is <strong>risk reduction, not alpha</strong> (12.9% volatility, the lowest of the six).</p>
+      </article>
+      <article class="conclusion-card">
+        <h4>The optimizer fails to beat 1/N out-of-sample.</h4>
+        <p>Optimized net CAGR <strong>12.5%</strong> vs 1/N <strong>15.9%</strong>; Sharpe
+          <strong>0.76</strong> vs <strong>0.89</strong>; net drawdown worse. A claim of improvement is made
+          only if OOS net economics improve after the corrected per-one-way turnover charge — here they do
+          not. Lower volatility (<strong>13.9%</strong> vs 15.5%) is the sole improvement.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 2. PIPELINE ------------------------------------------------------- -->
+  <section id="pipeline" class="section">
+    <h2>Method pipeline</h2>
+    <p class="section-sub">Ten stages, data to decision. Select a stage for what / formula / why /
+      literature / method&nbsp;&amp;&nbsp;code.</p>
+    <div class="pipeline" role="tablist" aria-label="Method pipeline stages">
+      <button class="stage-tab" role="tab" id="tab-1" aria-controls="stage-1" aria-selected="true" tabindex="0">1 · Data</button>
+      <button class="stage-tab" role="tab" id="tab-2" aria-controls="stage-2" aria-selected="false" tabindex="-1">2 · Cleaning &amp; Investability</button>
+      <button class="stage-tab" role="tab" id="tab-3" aria-controls="stage-3" aria-selected="false" tabindex="-1">3 · Signal Construction</button>
+      <button class="stage-tab" role="tab" id="tab-4" aria-controls="stage-4" aria-selected="false" tabindex="-1">4 · IC / Quintiles</button>
+      <button class="stage-tab" role="tab" id="tab-5" aria-controls="stage-5" aria-selected="false" tabindex="-1">5 · Fama&#8211;MacBeth</button>
+      <button class="stage-tab" role="tab" id="tab-6" aria-controls="stage-6" aria-selected="false" tabindex="-1">6 · External Validation</button>
+      <button class="stage-tab" role="tab" id="tab-7" aria-controls="stage-7" aria-selected="false" tabindex="-1">7 · OOS Forecast</button>
+      <button class="stage-tab" role="tab" id="tab-8" aria-controls="stage-8" aria-selected="false" tabindex="-1">8 · Portfolio Construction</button>
+      <button class="stage-tab" role="tab" id="tab-9" aria-controls="stage-9" aria-selected="false" tabindex="-1">9 · Costs &amp; Risk</button>
+      <button class="stage-tab" role="tab" id="tab-10" aria-controls="stage-10" aria-selected="false" tabindex="-1">10 · Final Portfolio</button>
+    </div>
+    <div class="pipeline-panels">
+      <section class="stage-panel" id="stage-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+        <h3>Data</h3>
+        <div class="equation" role="math" aria-label="Data identifier formula">
+          ID<sub>i</sub> = ISO3<sub>i</sub> &#8741; MIC<sub>i</sub> &#8741; Ticker<sub>i</sub> &#8741; Class<sub>i</sub>
+        </div>
+        <ul class="variable-list" aria-label="Data formula symbol definitions">
+          <li><span class="var">ID<sub>i</sub></span> stable security identifier of name <em>i</em>.</li>
+          <li><span class="var">ISO3<sub>i</sub></span> ISO 3166-1 alpha-3 country code (CN, HK, IN, JP, KR, SG, TW).</li>
+          <li><span class="var">MIC<sub>i</sub></span> ISO 10383 market-identifier code of the listing venue.</li>
+          <li><span class="var">Ticker<sub>i</sub></span> vendor ticker symbol.</li>
+          <li><span class="var">Class<sub>i</sub></span> share-class label (common or other).</li>
+          <li><span class="var">&#8741;</span> string concatenation in the fixed field order shown.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>yfinance primary OHLCV + actions for 210 common-equity names across CN, HK, IN, JP, KR, SG, TW, 2010-01..2026-10; benchmarks, FX, US risk-free proxy, JKP country factors and French regional factors ingested read-only.</dd>
+          <dt>Formula / construct</dt><dd>Raw <code>open/high/low/close</code>, vendor <code>adj_close</code>, <code>dividends</code>, <code>stock_splits</code>; stable id <code>{ISO3}_{MIC}_{TICKER}_{SHARE_CLASS}</code>.</dd>
+          <dt>Why</dt><dd>Provenance-first: immutable raw snapshots, labelled sources, no overwrite.</dd>
+          <dt>Literature</dt><dd>Ince &amp; Porter (2006) on vendor-data care; Jensen, Kelly &amp; Pedersen (2023) on a common country factor protocol.</dd>
+          <dt>Method &amp; code</dt><dd><a href="audit/DATA_METHODOLOGY.md">DATA_METHODOLOGY.md</a> · <a href="code/acquire_and_audit.py">scripts/acquire_and_audit.py</a> · <a href="reports/data_acquisition_report.md">data_acquisition_report.md</a> · <a href="reports/data_source_matrix.csv">data_source_matrix.csv</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+        <h3>Cleaning &amp; Investability</h3>
+        <div class="equation" role="math" aria-label="Monthly total return formula">
+          r<sub>i,t</sub> = P<sup>adj</sup><sub>i,t</sub> / P<sup>adj</sup><sub>i,t&#8722;1</sub> &#8722; 1
+        </div>
+        <ul class="variable-list" aria-label="Cleaning formula symbol definitions">
+          <li><span class="var">r<sub>i,t</sub></span> monthly total return of name <em>i</em> in calendar month <em>t</em>.</li>
+          <li><span class="var">P<sup>adj</sup><sub>i,t</sub></span> split- and dividend-adjusted close at the month-end of <em>t</em>.</li>
+          <li><span class="var">P<sup>adj</sup><sub>i,t&#8722;1</sub></span> adjusted close at the immediately preceding calendar month-end.</li>
+          <li>Valid only when <em>t&#8722;1</em> is the immediately preceding calendar month; no forward fill, no interpolation.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Daily &rarr; monthly total returns from Adj Close on actual month-end observations. No forward fill, no interpolation. TRADED / STALE / SUSPENDED states; corporate actions already embedded in Adj Close and never re-applied; fixed lagged bottom-20% liquidity filter; survivorship flagged, never cured.</dd>
+          <dt>Formula</dt><dd><code>monthly_total_return = adj_close_t / adj_close_{t-1} &minus; 1</code> only where the prior observation is in the immediately preceding calendar month.</dd>
+          <dt>Why</dt><dd>Avoid stale/unadjusted vendor prices and survivor-only universes; keep a point-in-time investability gate.</dd>
+          <dt>Literature</dt><dd>Shumway (1997) delisting bias; Dimson (1979) infrequent trading; Hou, Xue &amp; Zhang (2020) investability; Ince &amp; Porter (2006).</dd>
+          <dt>Method &amp; code</dt><dd><a href="audit/METHODOLOGY_DATA_CLEANING.md">METHODOLOGY_DATA_CLEANING.md</a> · <a href="code/clean_and_build_panel.py">scripts/clean_and_build_panel.py</a> · <a href="reports/cleaning_report.md">cleaning_report.md</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
+        <h3>Signal Construction</h3>
+        <div class="equation" role="math" aria-label="Signal formulas">
+          MOM<sub>i,t</sub> = &#8719;<sub>m=t&#8722;12</sub><sup>t&#8722;2</sup>(1 + r<sub>i,m</sub>) &#8722; 1<br>
+          LOWRISK<sub>i,t</sub> = &#8722;&#8730;252 &#183; sd(r<sub>i,d</sub>) over 60 traded sessions (min 40)<br>
+          Composite<sub>i,t</sub> = 0.5&#183;z(MOM) + 0.5&#183;z(LOWRISK)
+        </div>
+        <ul class="variable-list" aria-label="Signal formula symbol definitions">
+          <li><span class="var">i</span> security; <span class="var">t</span> formation month.</li>
+          <li><span class="var">m</span> monthly index over the 11-cell window t&#8722;12..t&#8722;2 (t&#8722;1 skipped); <span class="var">r<sub>i,m</sub></span> monthly total return.</li>
+          <li><span class="var">d</span> daily index over the trailing 60 traded sessions (minimum 40); <span class="var">r<sub>i,d</sub></span> daily total return.</li>
+          <li><span class="var">&#8719;</span> product across the window; <span class="var">sd</span> sample standard deviation.</li>
+          <li><span class="var">z</span> cross-sectional standardisation within market-month.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>MOM = 12-1 momentum (skip the latest month). LOWRISK = <code>&minus;vol_60</code>; secondary <code>vol_252</code>, beta, IVOL. Composite = fixed <code>0.5&middot;z(MOM)+0.5&middot;z(LOWRISK)</code>. All trailing and point-in-time.</dd>
+          <dt>Formula</dt><dd><code>mom_12_1 = prod_{m=t-12}^{t-2}(1+r_m) &minus; 1</code> (11 cells, month <code>t-1</code> excluded); <code>vol_60 = sqrt(252)&middot;std(daily traded returns)</code>, min 40 traded sessions.</dd>
+          <dt>Why</dt><dd>Small, pre-specified, transparent signals — no zoo mining, no composite re-weighting.</dd>
+          <dt>Literature</dt><dd>Jegadeesh &amp; Titman (1993); Asness, Moskowitz &amp; Pedersen (2013); Ang, Hodrick, Xing &amp; Zhang (2006); Frazzini &amp; Pedersen (2014).</dd>
+          <dt>Method &amp; code</dt><dd><a href="audit/METHODOLOGY_DATA_CLEANING.md">METHODOLOGY_DATA_CLEANING.md §3b</a> · <a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md §2</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
+        <h3>IC / Quintiles</h3>
+        <div class="equation" role="math" aria-label="Rank IC and quintile spread formulas">
+          IC<sub>c,t</sub> = Spearman(S<sub>i,t</sub>, R<sub>i,t+1</sub>)<br>
+          Spread<sub>c,t+1</sub> = R<sub>Q5</sub> &#8722; R<sub>Q1</sub>
+        </div>
+        <ul class="variable-list" aria-label="IC and quintile formula symbol definitions">
+          <li><span class="var">c</span> market; <span class="var">t</span> month; <span class="var">i</span> security.</li>
+          <li><span class="var">S<sub>i,t</sub></span> signal value; <span class="var">R<sub>i,t+1</sub></span> next-month return.</li>
+          <li><span class="var">Spearman</span> rank correlation computed within market-month.</li>
+          <li><span class="var">Q5</span>, <span class="var">Q1</span> highest- and lowest-expected-return quintile buckets; <span class="var">Spread</span> = Q5&#8722;Q1.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Per market-month rank IC and Q1..Q5 buckets; Q5&minus;Q1 spread; country-equal pooled aggregate only after country results.</dd>
+          <dt>Formula</dt><dd><code>IC = Spearman(signal, next_month_return)</code> within market-month; Q5 = highest-expected-return bucket.</dd>
+          <dt>Why</dt><dd>Rank measures are robust to outliers and non-normality; separate long-short spread from implementable long-only sleeve.</dd>
+          <dt>Literature</dt><dd>Fama &amp; French (2012) on international cross-sections.</dd>
+          <dt>Method &amp; code</dt><dd><a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md §2</a> · <a href="results/signal_tests/ic_by_country.csv">ic_by_country.csv</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
+        <h3>Fama&ndash;MacBeth (primary)</h3>
+        <div class="equation" role="math" aria-label="Fama-MacBeth regression formula">
+          R<sub>i,t+1</sub> = a<sub>t</sub> + b<sub>M,t</sub> MOM_z<sub>i,t</sub> + b<sub>L,t</sub> LOWRISK_z<sub>i,t</sub> + &#947;<sub>t</sub>&#8242; Controls<sub>i,t</sub> + &#948;<sub>c,t</sub> + &#949;<sub>i,t+1</sub>
+        </div>
+        <ul class="variable-list" aria-label="Fama-MacBeth formula symbol definitions">
+          <li><span class="var">R<sub>i,t+1</sub></span> next-month return; <span class="var">a<sub>t</sub></span> monthly intercept.</li>
+          <li><span class="var">b<sub>M,t</sub></span>, <span class="var">b<sub>L,t</sub></span> monthly slopes on MOM and LOWRISK.</li>
+          <li><span class="var">MOM_z<sub>i,t</sub></span>, <span class="var">LOWRISK_z<sub>i,t</sub></span> within-market standardised signals.</li>
+          <li><span class="var">&#947;<sub>t</sub></span> control-slope vector; <span class="var">Controls</span> = lagged-return z and log-liquidity z.</li>
+          <li><span class="var">&#948;<sub>c,t</sub></span> market fixed effect; <span class="var">&#949;<sub>i,t+1</sub></span> residual.</li>
+          <li>Monthly slopes are averaged; standard errors use Newey&#8211;West HAC(6).</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Monthly cross-sectional OLS of next-month return on within-market standardised <code>mom_z</code>, <code>lowrisk_z</code> and two controls; market fixed effects; mean of monthly slopes with Newey&ndash;West HAC(6) standard errors.</dd>
+          <dt>Formula</dt><dd><code>r_{i,t+1} = a + &beta;_MOM z(MOM)_{i,t} + &beta;_LR z(LOWRISK)_{i,t} + &gamma;&#8242;controls + marketFE + e_{i,t+1}</code>.</dd>
+          <dt>Why</dt><dd>Two-pass standard; within-market standardisation limits currency/market artefacts; NW HAC(6) corrects autocorrelation.</dd>
+          <dt>Literature</dt><dd>Fama &amp; MacBeth (1973); Newey &amp; West (1987).</dd>
+          <dt>Method &amp; code</dt><dd><a href="results/fama_macbeth/fm_pooled.csv">fm_pooled.csv</a> · <a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md §3</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-6" role="tabpanel" aria-labelledby="tab-6" tabindex="0" hidden>
+        <h3>External Validation</h3>
+        <div class="equation" role="math" aria-label="External validation formulas">
+          &#961;<sub>c</sub> = Corr( Own_Q5&#8722;Q1,<sub>c,t</sub>, JKP<sub>c,t</sub> )<br>
+          SignAgree<sub>c</sub> = mean[ sign(Own) = sign(JKP) ]
+        </div>
+        <ul class="variable-list" aria-label="External validation formula symbol definitions">
+          <li><span class="var">&#961;<sub>c</sub></span> correlation of the project's Q5&#8722;Q1 spread with the JKP country factor in market <em>c</em>.</li>
+          <li><span class="var">Own_Q5&#8722;Q1,<sub>c,t</sub></span> project equal-weight, survivor-biased long&#8211;short spread.</li>
+          <li><span class="var">JKP<sub>c,t</sub></span> value-weighted long&#8211;short JKP country factor in decimal excess USD.</li>
+          <li><span class="var">SignAgree<sub>c</sub></span> mean share of months with the same sign.</li>
+          <li>Series are joined on exact common month-ends only (n=178 per market).</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>JKP country <code>momentum</code> / <code>low_risk</code> on exact common month-ends (correlation, sign agreement, pre/post-2020). French <code>Mkt-RF</code> market-only cross-check. AQR <code>NOT_AVAILABLE</code>.</dd>
+          <dt>Formula</dt><dd><code>corr(own Q5&minus;Q1, JKP factor)</code> on inner-joined dates; sign agreement = share of same-sign months.</dd>
+          <dt>Why</dt><dd>Compare against an independent, globally consistent country factor library.</dd>
+          <dt>Literature</dt><dd>Jensen, Kelly &amp; Pedersen (2023); Fama &amp; French (2012).</dd>
+          <dt>Method &amp; code</dt><dd><a href="results/jkp_validation/jkp_momentum.csv">jkp_momentum.csv</a> · <a href="results/jkp_validation/aqr_status.csv">aqr_status.csv</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-7" role="tabpanel" aria-labelledby="tab-7" tabindex="0" hidden>
+        <h3>OOS Forecast</h3>
+        <div class="equation" role="math" aria-label="Out-of-sample forecast formula">
+          &#956;&#770;<sub>i,t</sub> = b&#770;<sub>&#8804;t&#8722;1</sub>&#8242; z<sub>i,t</sub>
+        </div>
+        <ul class="variable-list" aria-label="OOS forecast formula symbol definitions">
+          <li><span class="var">&#956;&#770;<sub>i,t</sub></span> forecast next-month return for name <em>i</em> at formation month <em>t</em>.</li>
+          <li><span class="var">b&#770;<sub>&#8804;t&#8722;1</sub></span> slope estimate trained only on formation months up to and including <em>t&#8722;1</em>.</li>
+          <li><span class="var">z<sub>i,t</sub></span> contemporaneous within-market standardised signal vector.</li>
+          <li>Expanding window uses no future values; an inadequate history marks the sleeve-month NA rather than trading.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Expanding-window Fama&ndash;MacBeth coefficients trained only on past formation months whose next-month return is already realised; forecast = slopes &middot; z_i(t). If history is inadequate the sleeve-month is <strong>not traded</strong> (marked NA, no silent fallback).</dd>
+          <dt>Formula</dt><dd><code>&mu;_i(t) = slopes(t) &middot; z_i(t)</code>.</dd>
+          <dt>Why</dt><dd>Strictly past data only; expanding window — no re-selection.</dd>
+          <dt>Literature</dt><dd>Fama &amp; MacBeth (1973).</dd>
+          <dt>Method &amp; code</dt><dd><a href="results/oos/oos_portfolio_returns.csv">oos_portfolio_returns.csv</a> · <a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md §5.1</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-8" role="tabpanel" aria-labelledby="tab-8" tabindex="0" hidden>
+        <h3>Portfolio Construction</h3>
+        <div class="equation" role="math" aria-label="Portfolio optimization objective">
+          <span class="eq-line">max<sub>w</sub> w&#8242;&#956;&#770; &#8722; &#955; w&#8242;&#931;&#770; w</span>
+          <span class="eq-line">&#8722; &#951; c &#183; 0.5 &#931;<sub>i</sub> | w<sub>i</sub> &#8722; w_prev<sub>i</sub> |</span>
+          <span class="eq-line">subject to &#931;<sub>i</sub> w<sub>i</sub> = 1, w<sub>i</sub> &#8805; 0</span>
+        </div>
+        <ul class="variable-list" aria-label="Portfolio optimization symbol definitions">
+          <li><span class="var">w</span> long-only weight vector; <span class="var">&#956;&#770;</span> expected returns.</li>
+          <li><span class="var">&#931;&#770;</span> Ledoit&#8211;Wolf shrinkage covariance of trailing USD returns.</li>
+          <li><span class="var">&#955; = 5</span> risk-aversion coefficient; <span class="var">&#951; = 1</span> turnover-penalty weight.</li>
+          <li><span class="var">c</span> one-way cost (15&nbsp;bps base); <span class="var">w_prev</span> prior-month weights.</li>
+          <li>Fully invested, non-negative weights solved with SLSQP.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Country sleeves built monthly from eligible names, combined equal-country: 1/N, Momentum top quintile, Low Risk top quintile, Composite top quintile, and a long-only mean&ndash;variance Optimized sleeve.</dd>
+          <dt>Formula</dt><dd><code>max w&middot;&mu; &minus; &lambda; w&#8242;&Sigma;w &minus; &eta; c &middot; 0.5 &Sigma;|w &minus; w_prev|</code> s.t. <code>&Sigma;w=1, w&ge;0</code>, <code>&lambda;=5</code>, Ledoit&ndash;Wolf &Sigma;, SLSQP.</dd>
+          <dt>Why</dt><dd>Translate statistical signals into investable, fully-invested, long-only portfolios.</dd>
+          <dt>Literature</dt><dd>Markowitz (1952); Ledoit &amp; Wolf (2004); DeMiguel, Garlappi &amp; Uppal (2009); Kraft (1988).</dd>
+          <dt>Method &amp; code</dt><dd><a href="results/portfolio/final_apac_table.csv">final_apac_table.csv</a> · <a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md §5</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-9" role="tabpanel" aria-labelledby="tab-9" tabindex="0" hidden>
+        <h3>Costs &amp; Risk</h3>
+        <div class="equation" role="math" aria-label="Turnover and net return formulas">
+          TO<sub>t</sub> = 0.5 &#931;<sub>i</sub> | w<sub>i,t</sub> &#8722; w<sub>i,t&#8722;1</sub> |<br>
+          R<sub>net,t</sub> = R<sub>gross,t</sub> &#8722; c &#183; TO<sub>t</sub> &#8722; Tax<sub>t</sub>
+        </div>
+        <ul class="variable-list" aria-label="Costs and risk formula symbol definitions">
+          <li><span class="var">TO<sub>t</sub></span> one-way turnover; <span class="var">w<sub>i,t</sub></span> weight in name <em>i</em> at month <em>t</em>.</li>
+          <li><span class="var">R<sub>gross,t</sub></span> pre-cost monthly return; <span class="var">c</span> one-way friction (15&nbsp;bps base).</li>
+          <li><span class="var">Tax<sub>t</sub></span> dated tax applied only where a verified effective date exists.</li>
+          <li>Dated limit: CN seller stamp 5&nbsp;bps from 2023-08-28; HK 10&nbsp;bps per side from 2023-11-17; all other jurisdictions unverified and not applied.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Gross plus 5 / 15 / 30&nbsp;bps one-way friction scenarios; dated CN/HK taxes applied only where an effective date is verified; one-way turnover <code>0.5&middot;&Sigma;|&Delta;w|</code>; country risk contribution from the sleeve-return covariance.</dd>
+          <dt>Formula</dt><dd><code>Net = Gross &minus; turnover&middot;friction &minus; dated_tax</code>.</dd>
+          <dt>Why</dt><dd>Rest the conclusion on net economics, not gross.</dd>
+          <dt>Literature</dt><dd>Frazzini, Israel &amp; Moskowitz (2018); Novy-Marx &amp; Velikov (2016).</dd>
+          <dt>Method &amp; code</dt><dd><a href="results/transaction_costs/cost_sensitivity.csv">cost_sensitivity.csv</a> · <a href="results/transaction_costs/tax_coverage.csv">tax_coverage.csv</a></dd>
+        </dl>
+      </section>
+      <section class="stage-panel" id="stage-10" role="tabpanel" aria-labelledby="tab-10" tabindex="0" hidden>
+        <h3>Final Portfolio</h3>
+        <div class="equation" role="math" aria-label="Improvement decision indicator">
+          Improve = 1[ CAGR<sub>opt,net</sub> &gt; CAGR<sub>1/N,net</sub> AND Sharpe<sub>opt,net</sub> &gt; Sharpe<sub>1/N,net</sub> ]
+        </div>
+        <ul class="variable-list" aria-label="Final decision symbol definitions">
+          <li><span class="var">Improve</span> indicator equal to 1 when the conjunction holds, else 0.</li>
+          <li><span class="var">CAGR<sub>opt,net</sub></span>, <span class="var">Sharpe<sub>opt,net</sub></span> out-of-sample net statistics of the optimizer.</li>
+          <li><span class="var">CAGR<sub>1/N,net</sub></span>, <span class="var">Sharpe<sub>1/N,net</sub></span> the same for equal-weight 1/N.</li>
+          <li>Decision rests on OOS net economics, not a nominal t-statistic. Actual result: <span class="var">Improve = 0</span>.</li>
+        </ul>
+        <dl>
+          <dt>What</dt><dd>Final APAC table; optimizer claim gated on OOS net improvement; multiplicity correction over the small primary family; eight pre-declared robustness families with explicit NA statuses.</dd>
+          <dt>Formula</dt><dd>Decision rule = OOS <em>net</em> improvement, not a nominal t-statistic.</dd>
+          <dt>Why</dt><dd>Nominal t-stats are not discovery; avoid factor-zoo overclaim.</dd>
+          <dt>Literature</dt><dd>Harvey, Liu &amp; Zhu (2016); Feng, Giglio &amp; Xiu (2020); Hou, Xue &amp; Zhang (2020).</dd>
+          <dt>Method &amp; code</dt><dd><a href="tables/final_apac_table.csv">final_apac_table.csv</a> · <a href="reports/APAC_Alpha_to_Portfolio_Final_Report.md">Final_Report.md</a></dd>
+        </dl>
+      </section>
+    </div>
+  </section>
+
+  <!-- 3. DATA / CLEANING ------------------------------------------------ -->
+  <section id="data" class="section">
+    <h2>Data &amp; cleaning</h2>
+    <p class="section-sub">Market/sample coverage, source hierarchy and the investability gate. QC
+      images are selected from <code>reports/charts/cleaning/</code>.</p>
+    <div class="cols">
+      <div>
+        <h3>Coverage &amp; source hierarchy</h3>
+        <ul class="fact-list">
+          <li><strong>Markets:</strong> CN, HK, IN, JP, KR, SG, TW. <strong>210 research-panel securities</strong>; 222 master rows, including 214 common equities and 8 excluded investment vehicles.</li>
+          <li><strong>Primary source:</strong> yfinance for every market. <strong>BaoStock / AKShare</strong> are CN/HK cross-checks only and never overwrite the primary series.</li>
+          <li><strong>No forward fill, no interpolation.</strong> Month-end = last actual trading observation with an immediately preceding calendar-month pair.</li>
+          <li><strong>Trading state</strong> distinguishes TRADED / STALE / SUSPENDED from provider flags and volume — never inferred from returns.</li>
+          <li><strong>Corporate actions:</strong> total returns use vendor Adj Close; dividends/splits are not re-applied (<code>corporate_events_applied_again = False</code>).</li>
+          <li><strong>Investability:</strong> fixed lagged bottom-20% liquidity filter within market-month — a control, never optimised.</li>
+          <li><strong>Survivorship:</strong> flagged in all seven markets, <em>not cured</em>; CN/HK delisting coverage is 0/N.</li>
+        </ul>
+        <p class="refs-inline">References (recorded DOIs):
+          <a href="https://doi.org/10.1111/j.1475-6803.2006.00189.x" rel="noopener">Ince &amp; Porter 2006</a>,
+          <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03818.x" rel="noopener">Shumway 1997</a>,
+          <a href="https://doi.org/10.1016/0304-405X(79)90013-8" rel="noopener">Dimson 1979</a>,
+          <a href="https://doi.org/10.1093/rfs/hhy131" rel="noopener">Hou, Xue &amp; Zhang 2020</a>.
+        </p>
+      </div>
+      <div class="qc-figures">
+        <figure>
+          <img src="assets/figures/01_price_validity_by_market.png" alt="Bar chart of valid vs invalid daily prices by market.">
+          <figcaption>Price validity by market — invalid prices are flagged, never imputed.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/figures/05_return_coverage_by_month.png" alt="Line chart of monthly return coverage over time by market.">
+          <figcaption>Monthly return coverage — no forward fill; listing edges and gaps stay missing.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/figures/09_survivorship_flags.png" alt="Bar chart of survivorship flags by market.">
+          <figcaption>Survivorship flags — current-universe bias in all seven markets.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/figures/12_signal_coverage_by_market.png" alt="Bar chart of signal coverage by market.">
+          <figcaption>Signal coverage by market — CN beta/IVOL are genuinely NA (one-row benchmark).</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <figure class="chart" id="chart-coverage" data-chart="coverage" data-source="reports/signal_qc.csv">
+      <figcaption>
+        <h3>The eligible universe is broadly similar across markets</h3>
+        <p class="chart-sub">Per-market sample coverage from the cleaning stage: core securities, eligible names, observation months, liquidity-cutoff exclusions and signal coverage. 2010-01..2026-10.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Gross, pre-cost. Eligible = passes the point-in-time listing, signal/risk, liquidity and fixed bottom-20% liquidity-cutoff gates.</p>
+      <p class="source">Calculation from point-in-time investability and signal-coverage audit</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Eligibility is ~73&ndash;75% in every market; the fixed liquidity control removes a similar share, and SG runs a smaller sample.</p>
+    </figure>
+  </section>
+
+  <!-- 4. SIGNALS -------------------------------------------------------- -->
+  <section id="signals" class="section">
+    <h2>Signals</h2>
+    <p class="section-sub">Fixed, transparent, orientation-uniform: higher = higher expected return / lower risk.</p>
+    <div class="card-grid">
+      <article class="signal-card">
+        <h3>MOM &mdash; 12-1 momentum</h3>
+        <p class="formula"><code>mom_12_1 = &prod;_{m=t-12}^{t-2}(1+r_m) &minus; 1</code></p>
+        <p>Compounds exactly the 11 monthly total returns <code>t-12..t-2</code>; the most recent month
+          <code>t-1</code> is skipped. Built on a gap-aware grid — all 11 cells must be present.</p>
+      </article>
+      <article class="signal-card">
+        <h3>LOWRISK &mdash; low volatility</h3>
+        <p class="formula"><code>LOWRISK = &minus;vol_60</code></p>
+        <p>Annualised standard deviation of daily total returns over 60 traded sessions
+          (<code>sqrt(252)</code>, min 40). Secondary: <code>vol_252</code>, beta, and idiosyncratic
+          volatility (CN beta/IVOL are NA — the CN benchmark has one row).</p>
+      </article>
+      <article class="signal-card">
+        <h3>Composite &mdash; fixed 50/50</h3>
+        <p class="formula"><code>0.5&middot;z(MOM) + 0.5&middot;z(LOWRISK)</code></p>
+        <p>A transparent combined score, <strong>fixed ex ante</strong> and not re-optimised on history.
+          Z-scores are cross-sectional within market-month.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. TESTING -------------------------------------------------------- -->
+  <section id="testing" class="section">
+    <h2>Signal testing</h2>
+    <p class="section-sub">Rank IC, quintile spreads and pooled Fama&ndash;MacBeth. Evidence is gross /
+      pre-cost at this stage.</p>
+
+    <figure class="chart" id="chart-ic" data-chart="ic" data-source="results/signal_tests/ic_by_country.csv; results/signal_tests/ic_pooled_apac.csv">
+      <figcaption>
+        <h3>Rank IC is positive for Momentum, near zero for Low Risk</h3>
+        <p class="chart-sub">Country-equal Spearman IC, monthly, 2011-02..2026-09 (not annualised). Sample: eligible universe, signal and next-month return non-null.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Gross, pre-cost. IC is a rank correlation; monthly values are sign-unstable.</p>
+      <p class="source">Calculation from monthly within-market Spearman rank correlations</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum carries a small but persistent positive rank IC; the low-risk orientation is essentially flat.</p>
+    </figure>
+
+    <figure class="chart" id="chart-quintiles" data-chart="quintiles" data-source="results/signal_tests/quintiles_mom.csv; results/signal_tests/quintiles_lowrisk.csv; results/robustness/vol252_quintiles.csv">
+      <figcaption>
+        <h3>Momentum Q5 is highest; Low-Risk Q5 is the lowest-returning bucket</h3>
+        <p class="chart-sub">Equal-weight USD mean monthly return by signal quintile within market-month. Q5 = highest expected-return / lowest-risk bucket.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Gross, pre-cost. Long-short Q5&minus;Q1 is distinguished from the implementable long-only Q5 sleeve.</p>
+      <p class="source">Calculation from market-month quintile sorts and Q5&#8722;Q1 spreads</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum sorts the right way in most markets; the low-volatility sort is inverted (Q5 below Q1 on average).</p>
+    </figure>
+
+    <figure class="chart" id="chart-fm" data-chart="fm" data-source="results/fama_macbeth/fm_pooled.csv; results/fama_macbeth/fm_by_country.csv">
+      <figcaption>
+        <h3>Fama&ndash;MacBeth: positive momentum, negative low-risk slope</h3>
+        <p class="chart-sub">Mean monthly cross-sectional slopes with within-market standardisation, market fixed effects and Newey&ndash;West HAC(6) t-statistics. 188 valid months.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Error bars are an <strong>approximate</strong> NW 95% interval computed solely as <code>|slope/t|&times;1.96</code>; exact NW HAC(6) t shown on hover. Gross, pre-cost.</p>
+      <p class="source">Calculation from monthly cross-sectional regressions with Newey-West HAC(6)</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Only <code>mom_z</code> clears the corrected significance bar; <code>lowrisk_z</code> is negative and does not survive multiplicity.</p>
+    </figure>
+  </section>
+
+  <!-- 6. EXTERNAL VALIDATION -------------------------------------------- -->
+  <section id="validation" class="section">
+    <h2>External validation (JKP)</h2>
+    <p class="section-sub">Jensen, Kelly &amp; Pedersen country <code>momentum</code> and
+      <code>low_risk</code> factors on exact common month-ends.</p>
+
+    <div class="callout callout-warn">
+      <p><strong>Validation, not replication.</strong> JKP factors are <em>value-weighted long&ndash;short
+        country factors in decimal excess USD</em>. This project's series are <em>equal-weight,
+        survivor-biased Q5&minus;Q1 spreads</em> on a 210-name current universe. Methodology, weighting and
+        units differ, so agreement is corroborating rather than a replication. French is used only for a
+        market-return cross-check (it carries no momentum/low-risk); the ex-Japan aggregate is not HK/SG.
+        AQR is <code>NOT_AVAILABLE</code> (not in approved inputs; no network substitute).</p>
+    </div>
+
+    <figure class="chart" id="chart-jkp" data-chart="jkp" data-source="results/jkp_validation/jkp_momentum.csv; results/jkp_validation/jkp_lowrisk.csv">
+      <figcaption>
+        <h3>Momentum agrees with JKP in most markets; Low Risk agrees in sign but not direction</h3>
+        <p class="chart-sub">Paired correlation and sign agreement on exact common dates (n=178 per market), with recorded Full / pre-2020 / post-2020 values.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Controls expose only the recorded Full / Pre-2020 / Post-2020 values — no recomputation, no interpolation.</p>
+      <p class="source">Calculation from exact-date country-factor validation joins</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum correlation is positive and rises post-2020; Low Risk correlations are positive on returns but the project's own premium is inverted.</p>
+    </figure>
+  </section>
+
+  <!-- 7. OOS FLOW ------------------------------------------------------- -->
+  <section id="oos" class="section">
+    <h2>Out-of-sample construction</h2>
+    <p class="section-sub">Strictly past-information flow. OOS is 2016-01..2026-09, 129 months; 2026 is
+      a partial year and labelled incomplete throughout.</p>
+    <ol class="flow" aria-label="Out-of-sample data flow">
+      <li><strong>Past data only</strong><span>Formation month <code>t</code> sees only realised history.</span></li>
+      <li><strong>Expanding FM forecasts</strong><span><code>&mu;_i(t) = slopes(t)&middot;z_i(t)</code>; NA rather than a silent fallback.</span></li>
+      <li><strong>Ledoit&ndash;Wolf covariance</strong><span>Trailing 36 monthly USD returns, min 24 obs, common-asset sample.</span></li>
+      <li><strong>Portfolio</strong><span>Long-only, fully invested; turnover penalty uses the same per-one-way convention as realised costs.</span></li>
+      <li><strong>Future period</strong><span>Weights formed at end of <code>t</code> earn realised month <code>t+1</code>.</span></li>
+    </ol>
+    <p class="method-note">Objective:
+      <code>max w&middot;&mu; &minus; &lambda; w&#8242;&Sigma;w &minus; &eta;c&Sigma;|w&minus;w_prev|</code>,
+      <code>&lambda;=5</code>, <code>&eta;=1</code>, <code>c</code>=15&nbsp;bps, subject to
+      <code>&Sigma;w=1, w&ge;0</code>. The benchmark is <strong>6-market</strong> (HK, IN, JP, KR, SG, TW)
+      because the CN benchmark has only one row and no synthetic China is created.</p>
+    <p class="refs-inline">Literature: Markowitz (1952); Ledoit &amp; Wolf (2004); DeMiguel, Garlappi &amp; Uppal (2009); trading-cost references as recorded in project docs.</p>
+
+    <figure class="chart" id="chart-wealth" data-chart="wealth" data-source="results/oos/oos_portfolio_returns_net15bps.csv; results/portfolio/benchmark_returns.csv">
+      <figcaption>
+        <h3>Net Momentum compounds far above the benchmark; 2026 is partial</h3>
+        <p class="chart-sub">Cumulative wealth from 1.0, OOS 2016-01..2026-09. Strategies are net of 15&nbsp;bps + dated taxes; benchmark is uncharged.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Net status: strategies net; benchmark uncharged. 2026 covers 9 months (partial).</p>
+      <p class="source">Calculation from monthly OOS USD returns net of 15&nbsp;bps and dated taxes (benchmark uncharged)</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum ends clearly ahead of 1/N and the benchmark; the rank order is stable through the pandemic and 2022 drawdown.</p>
+    </figure>
+
+    <figure class="chart" id="chart-drawdown" data-chart="drawdown" data-source="results/oos/oos_portfolio_returns_net15bps.csv; results/portfolio/benchmark_returns.csv">
+      <figcaption>
+        <h3>Low Risk and the optimizer draw down less than Momentum</h3>
+        <p class="chart-sub">Running net drawdown (wealth vs prior peak), OOS 2016-01..2026-09. Lower is worse.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Net status: strategies net; benchmark uncharged. 2026 partial.</p>
+      <p class="source">Calculation from monthly OOS USD returns net of 15&nbsp;bps and dated taxes (benchmark uncharged)</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Net maximum drawdown is worst for the benchmark and shallowest for 1/N and the optimizer.</p>
+    </figure>
+
+    <figure class="chart" id="chart-rolling" data-chart="rolling" data-source="results/oos/oos_portfolio_returns_net15bps.csv">
+      <figcaption>
+        <h3>Rolling 12-month total net return</h3>
+        <p class="chart-sub">Trailing 12-month compounded net return, OOS 2016-01..2026-09. Every
+          post-2020 window is positive for Momentum.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Rolling 36-month <strong>Sharpe is omitted</strong> because no exact canonical
+        risk-free merge is safely reconstructible from existing outputs without re-running empirical code.
+        A recorded gross-vs-net comparison is provided in the costs section instead. 2026 partial.</p>
+      <p class="source">Calculation from monthly OOS USD returns net of 15&nbsp;bps and dated taxes (benchmark uncharged)</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Trailing-year returns swing widely around the 2018/2022 drawdowns; no sleeve escapes them.</p>
+    </figure>
+  </section>
+
+  <!-- 8. KEY RESULTS ---------------------------------------------------- -->
+  <section id="results" class="section">
+    <h2>Key results</h2>
+    <p class="section-sub">Exact canonical values. Portfolio metrics are OOS net; signal tests are gross.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi"><span class="kpi-label">MOM pooled IC</span><span class="kpi-value">0.0331</span><span class="kpi-note">FM slope 0.0031 · t 3.30</span></div>
+      <div class="kpi"><span class="kpi-label">MOM Q5&minus;Q1 positive</span><span class="kpi-value">6 / 7</span><span class="kpi-note">mean 0.0083/mo (India negative)</span></div>
+      <div class="kpi"><span class="kpi-label">Momentum net CAGR</span><span class="kpi-value">22.6%</span><span class="kpi-note">Sharpe 1.07 · MaxDD &#8722;25.6%</span></div>
+      <div class="kpi"><span class="kpi-label">LOWRISK pooled IC</span><span class="kpi-value">0.0022</span><span class="kpi-note">FM slope &#8722;0.0026 · t &#8722;2.31</span></div>
+      <div class="kpi"><span class="kpi-label">LOWRISK Q5&minus;Q1 negative</span><span class="kpi-value">7 / 7</span><span class="kpi-note">mean &#8722;0.0087/mo</span></div>
+      <div class="kpi"><span class="kpi-label">Low Risk volatility</span><span class="kpi-value">12.9%</span><span class="kpi-note">lowest of six; risk reduction, not alpha</span></div>
+      <div class="kpi"><span class="kpi-label">1/N net CAGR</span><span class="kpi-value">15.9%</span><span class="kpi-note">Sharpe 0.89 · MaxDD &#8722;20.5%</span></div>
+      <div class="kpi kpi-warn"><span class="kpi-label">Optimized net CAGR</span><span class="kpi-value">12.5%</span><span class="kpi-note">Sharpe 0.76 vs 1/N 0.89 — no OOS economic win</span></div>
+    </div>
+
+    <figure class="chart" id="chart-metrics" data-chart="metrics" data-source="tables/final_apac_table.csv">
+      <figcaption>
+        <h3>Momentum leads on net CAGR and Sharpe; 1/N beats the optimizer</h3>
+        <p class="chart-sub">Select a metric across the six portfolios. &ldquo;Net CAGR&rdquo; uses
+          <code>NetReturn</code> (net of 15&nbsp;bps + dated taxes), not gross CAGR.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">OOS net 2016-01..2026-09; benchmark uncharged. 2026 partial.</p>
+      <p class="source">Calculation from net OOS portfolio performance statistics</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Net of costs, Momentum wins on return and risk-adjusted return; the optimizer improves only volatility.</p>
+    </figure>
+
+    <figure class="chart" id="chart-annual" data-chart="annual" data-source="results/oos/oos_annual_returns.csv; results/oos/oos_annual_returns_meta.csv">
+      <figcaption>
+        <h3>Annual net returns by portfolio (2026 partial)</h3>
+        <p class="chart-sub">Canonical net 15&nbsp;bps + dated-tax annual returns. 2018 and 2022 are
+          negative for all sleeves; 2026 covers 9 months and is marked partial.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Net status: all strategy cells net; benchmark uncharged. 2026 = 9 months (partial).</p>
+      <p class="source">Calculation from calendar-year compounding of monthly net OOS returns</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum's edge is concentrated in 2017, 2020 and 2021; down years hit every sleeve.</p>
+    </figure>
+
+    <figure class="chart" id="chart-exposure" data-chart="exposure" data-source="results/portfolio/weights_summary.csv; results/portfolio/risk_contribution.csv">
+      <figcaption>
+        <h3>Country exposure is near-equal; KR contributes the most risk</h3>
+        <p class="chart-sub">Average country sleeve weight by portfolio, and (portfolio-level) country risk contribution from the sleeve-return covariance.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Equal-country construction; residual variation comes from active-sleeve counts. Risk share sums to 1 across markets.</p>
+      <p class="source">Calculation from country-sleeve weights and covariance risk decomposition</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Portfolios are country-balanced by design; risk is not evenly distributed, with KR the largest contributor.</p>
+    </figure>
+  </section>
+
+  <!-- 9. COSTS & ROBUSTNESS --------------------------------------------- -->
+  <section id="costs" class="section">
+    <h2>Costs &amp; robustness</h2>
+    <p class="section-sub">Gross vs 5 / 15 / 30&nbsp;bps one-way friction; dated taxes only where a
+      verified effective date exists (CN seller stamp 5&nbsp;bps from 2023-08-28; HK 10&nbsp;bps/side from
+      2023-11-17; all other jurisdictions unverified &rarr; not applied).</p>
+
+    <p class="table-scroll-cue" aria-hidden="true">Swipe table &rarr;</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Tax coverage table, scroll horizontally for all columns">
+      <table class="data-table">
+        <caption>Tax coverage — applied only where a verified effective date is recorded</caption>
+        <thead><tr><th scope="col">Market</th><th scope="col">Tax</th><th scope="col">Rate</th><th scope="col">Effective</th><th scope="col">Implemented</th></tr></thead>
+        <tbody>
+          <tr><td>CN</td><td>Stamp duty (sales)</td><td>5 bps sell-side</td><td>2023-08-28</td><td>months &ge; 2023-08</td></tr>
+          <tr><td>HK</td><td>Stamp duty</td><td>10 bps per side</td><td>2023-11-17</td><td>months &ge; 2023-11</td></tr>
+          <tr><td>IN</td><td>STT</td><td>0.1% delivery</td><td>—</td><td>NO (no verified date)</td></tr>
+          <tr><td>JP</td><td>Financial transaction tax</td><td>abolished 0%</td><td>1999-04-01</td><td>NO (zero rate)</td></tr>
+          <tr><td>KR</td><td>Securities transaction tax</td><td>~0.15% sell</td><td>—</td><td>NO (no verified date)</td></tr>
+          <tr><td>SG</td><td>Stamp duty</td><td>0.2% buy</td><td>—</td><td>NO (no verified date)</td></tr>
+          <tr><td>TW</td><td>Securities transaction tax</td><td>0.3% sell</td><td>—</td><td>NO (no verified date)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source">Calculation from documented dated tax schedules</p>
+
+    <figure class="chart" id="chart-cost" data-chart="cost" data-source="results/transaction_costs/cost_sensitivity.csv">
+      <figcaption>
+        <h3>Friction erodes but does not reverse the ranking</h3>
+        <p class="chart-sub">Gross and 5 / 15 / 30&nbsp;bps one-way scenarios. Illustrative friction range, not an official figure. Net status: scenarios are net; the benchmark carries none.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Dated CN/HK taxes included in every cost scenario. No cherry-picking of the best scenario.</p>
+      <p class="source">Calculation from one-way turnover under gross, 5, 15 and 30&nbsp;bps scenarios</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Even at 30&nbsp;bps, Momentum's net CAGR and Sharpe stay highest; the optimizer never overtakes 1/N.</p>
+    </figure>
+
+    <figure class="chart" id="chart-turnover" data-chart="turnover" data-source="results/portfolio/turnover.csv">
+      <figcaption>
+        <h3>Momentum trades far more than 1/N</h3>
+        <p class="chart-sub">Monthly one-way turnover <code>0.5&middot;&Sigma;|&Delta;w|</code>, OOS 2016-01..2026-09 (initial entry = 0.5).</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">One-way convention. The alternative investor-entry convention is reported in robustness. 2026 partial.</p>
+      <p class="source">Calculation from one-way portfolio rebalancing</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Momentum and Low Risk turn over ~9&ndash;10&times; the 1/N sleeve, so net-of-cost evaluation is essential.</p>
+    </figure>
+
+    <figure class="chart" id="chart-grossnet" data-chart="grossnet" data-source="results/oos/oos_annual_returns_gross.csv; results/oos/oos_annual_returns.csv">
+      <figcaption>
+        <h3>Gross vs net annual return (recorded comparison)</h3>
+        <p class="chart-sub">Recorded gross and canonical net annual returns per portfolio. This substitutes for the omitted rolling-Sharpe module and uses only recorded data.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Gross = pre-cost; net = 15&nbsp;bps + dated taxes. Benchmark uncharged. 2026 partial.</p>
+      <p class="source">Calculation from annual gross and 15&nbsp;bps net portfolio returns</p>
+      <p class="takeaway"><strong>Takeaway.</strong> The gross-to-net wedge is modest at 15&nbsp;bps, but grows with turnover and worsens at 30&nbsp;bps.</p>
+    </figure>
+
+    <figure class="chart" id="chart-robustness" data-chart="robustness" data-source="results/robustness/robustness_summary.csv; results/robustness/robustness_manifest.csv">
+      <figcaption>
+        <h3>Robustness explorer — all 210 recorded rows</h3>
+        <p class="chart-sub">Eight pre-declared families, never selected on Sharpe. <code>status='na'</code> marks an explicit non-result, never a silent skip.</p>
+      </figcaption>
+      <div class="chart-controls"></div>
+      <div class="plot"></div>
+      <p class="method-note">Families: 6-1 momentum; <code>vol_252</code>; bottom 10/20/40% liquidity cutoffs; equal vs liquidity weighting (sensitivity only); developed vs emerging; 2016&ndash;2019 vs 2020&ndash;2025; survivor sensitivity; country leave-one-out.</p>
+      <p class="source">Calculation from eight predeclared robustness families</p>
+      <p class="takeaway"><strong>Takeaway.</strong> Signs and economic magnitudes are stable across cutoffs and windows; liquidity weighting is a sensitivity, not a factor.</p>
+    </figure>
+  </section>
+
+  <!-- 10. LIMITATIONS --------------------------------------------------- -->
+  <section id="limitations" class="section">
+    <h2>Limitations</h2>
+    <div class="callout callout-limit" role="note">
+      <p class="banner-exact">Survivor-biased exploratory evidence, not a bias-free historical APAC universe.</p>
+    </div>
+    <ul class="fact-list">
+      <li><strong>Current-universe survivorship in all seven markets.</strong> CN and HK carry a questionable label with <strong>0/N delisting coverage</strong>; no market is survivorship-free.</li>
+      <li><strong>Only 210 curated names</strong> — not exhaustive historical listings; OOS claims are conditional on this sample.</li>
+      <li><strong>Incomplete delistings</strong> and inert listing/delisting gates (statuses carry no parseable dates).</li>
+      <li><strong>Single price source for most markets</strong>; independent cross-check exists only for CN and HK.</li>
+      <li><strong>CN beta / IVOL unavailable</strong> — the CN benchmark has a single daily row; CN is excluded from market-model signals only.</li>
+      <li><strong>Incomplete historical taxes</strong> — only CN/HK have verified effective dates; all other jurisdictions are not applied.</li>
+      <li><strong>2026 is partial</strong> (9 months) and flagged incomplete throughout.</li>
+    </ul>
+  </section>
+
+  <!-- 11. METHOD & LITERATURE ------------------------------------------- -->
+  <section id="method-literature" class="section">
+    <h2>Method &amp; literature mapping</h2>
+    <p class="section-sub">Populated from <code>LITERATURE_MAPPING.md</code>. Links are limited to DOI
+      URLs already recorded in the project documents; citations without a recorded link are shown as plain
+      text — no reference is invented.</p>
+    <div id="literature-table" class="literature-table" aria-live="polite"></div>
+    <div class="refs-block">
+      <h3>Recorded references</h3>
+      <ul id="reference-list" class="refs-list"></ul>
+    </div>
+  </section>
+
+  <!-- 12. REPRODUCIBILITY ----------------------------------------------- -->
+  <section id="repro" class="section">
+    <h2>Reproducibility</h2>
+    <p class="section-sub">Frozen before empirical calculation; immutable raw design; failed tests are
+      not hidden; no network.</p>
+    <div class="cols">
+      <div>
+        <h3>Governance</h3>
+        <ul class="fact-list">
+          <li><strong>Frozen pre-test method:</strong> <a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md</a> and <a href="audit/METHODOLOGY_DATA_CLEANING.md">METHODOLOGY_DATA_CLEANING.md</a> were written before any alpha tests.</li>
+          <li><strong>Specification registry:</strong> <a href="audit/SPECIFICATION_REGISTRY.csv">SPECIFICATION_REGISTRY.csv</a> — 40 specs across 7 categories, each labelled PRIMARY / ROBUSTNESS / EXPLORATORY.</li>
+          <li><strong>Immutable raw design:</strong> raw extractions are never overwritten; processed writes are atomic.</li>
+          <li><strong>Failed tests not hidden:</strong> <code>tests/test_main_empirical.py</code>, <code>tests/test_cleaning.py</code>, <code>tests/test_site.py</code> all run in-repo; explicit NA statuses replace silent skips.</li>
+          <li><strong>No network</strong> at analysis time; every figure is built from recorded canonical outputs.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Important file map</h3>
+        <ul class="filemap">
+          <li><a href="audit/DATA_METHODOLOGY.md">DATA_METHODOLOGY.md</a> <span>data acquisition (primary)</span></li>
+          <li><a href="audit/METHODOLOGY_DATA_CLEANING.md">METHODOLOGY_DATA_CLEANING.md</a> <span>cleaning (primary)</span></li>
+          <li><a href="audit/METHODOLOGY_MAIN_TESTS.md">METHODOLOGY_MAIN_TESTS.md</a> <span>empirical tests (primary)</span></li>
+          <li><a href="audit/SPECIFICATION_REGISTRY.csv">SPECIFICATION_REGISTRY.csv</a> <span>all 40 specs</span></li>
+          <li><a href="audit/LITERATURE_MAPPING.md">LITERATURE_MAPPING.md</a> <span>literature mapping</span></li>
+          <li><a href="tables/final_apac_table.csv">tables/final_apac_table.csv</a> <span>primary result table</span></li>
+          <li><a href="results/robustness/robustness_summary.csv">robustness_summary.csv</a> <span>robustness (210 rows)</span></li>
+          <li><a href="reports/APAC_Alpha_to_Portfolio_Final_Report.md">Final_Report.md</a> <span>report</span></li>
+          <li><a href="reports/APAC_Alpha_to_Portfolio_Executive_Summary.md">Executive_Summary.md</a> <span>report</span></li>
+          <li><a href="code/run_main_tests.py">scripts/run_main_tests.py</a> <span>empirical code</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Survivor-biased exploratory research. Not investment advice. No bias-free historical APAC universe
+      is claimed. Method and literature pages:
+      <a href="methodology/methodology.md">methodology.md</a> ·
+      <a href="methodology/literature.md">literature.md</a>.</p>
+    <p class="footer-fine">All interactive figures render from recorded canonical outputs only; no raw
+      stock or parquet data is published here. Built statically for GitHub Pages and local
+      <code>file://</code> use.</p>
+  </div>
+</footer>
+
+<noscript>
+  <p class="wrap">Interactive figures require JavaScript. All underlying numbers remain in the tables and
+    source CSVs linked above.</p>
+</noscript>
+
+<script src="assets/js/plotly.min.js"></script>
+<script src="assets/js/site-data.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

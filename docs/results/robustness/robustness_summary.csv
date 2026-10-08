@@ -1,0 +1,211 @@
+family,variation,factor,group,metric,value,label,status,note
+momentum_window_6_1,MOM_6_1,MOM,CN,avg_ic,-0.004681509510332881,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,HK,avg_ic,0.05167718055690157,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,IN,avg_ic,0.008710068839578557,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,JP,avg_ic,0.021431317957610076,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,KR,avg_ic,0.019387394404198878,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,SG,avg_ic,0.00788201963207805,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,TW,avg_ic,0.014244931155205951,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,APAC,avg_ic,0.016983126444009827,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,CN,q5_q1_mean,0.0008839938126681832,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,HK,q5_q1_mean,0.006728545072337441,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,IN,q5_q1_mean,-0.0018054247388606694,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,JP,q5_q1_mean,0.0007910058026639994,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,KR,q5_q1_mean,0.01157571573284253,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,SG,q5_q1_mean,0.007389092856570863,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,TW,q5_q1_mean,0.011071047209555311,ROBUSTNESS,ok,
+momentum_window_6_1,MOM_6_1,MOM,APAC,q5_q1_mean,0.00523342510682538,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,CN,avg_ic,0.016950798353486205,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,HK,avg_ic,0.030314594603919814,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,IN,avg_ic,-0.005261332099907492,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,JP,avg_ic,-0.03333753499740131,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,KR,avg_ic,0.015358355094294285,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,SG,avg_ic,0.03221833905898391,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,TW,avg_ic,-0.012982202097326536,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,APAC,avg_ic,0.006111719345011627,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,CN,q5_q1_mean,-0.002446618481714321,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,HK,q5_q1_mean,-0.005597581425753007,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,IN,q5_q1_mean,-0.002688921451842984,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,JP,q5_q1_mean,-0.011837381129160968,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,KR,q5_q1_mean,-0.0063992336796724345,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,SG,q5_q1_mean,-0.01842293713235895,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,TW,q5_q1_mean,-0.01708554517320148,ROBUSTNESS,ok,
+lowrisk_vol_252,vol_252,LOWRISK,APAC,q5_q1_mean,-0.00921117406767202,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,CN,avg_ic,0.025513202017576182,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,HK,avg_ic,0.04662670045971253,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,IN,avg_ic,0.028822058556101104,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,JP,avg_ic,0.02431965566733361,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,KR,avg_ic,0.0358576854714955,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,SG,avg_ic,0.027798786433431335,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,TW,avg_ic,0.04863228232377036,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,APAC,avg_ic,0.03386801411858785,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,CN,q5_q1_mean,0.0024502511616376135,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,HK,q5_q1_mean,0.00763969214746626,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,IN,q5_q1_mean,0.00125977045544116,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,JP,q5_q1_mean,0.0025234790486306216,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,KR,q5_q1_mean,0.011656541043769914,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,SG,q5_q1_mean,0.025339297790747724,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,TW,q5_q1_mean,0.014392859377353528,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,MOM,APAC,q5_q1_mean,0.009323127289292405,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,CN,avg_ic,0.02410727313089543,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,HK,avg_ic,0.028987506237294472,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,IN,avg_ic,-0.0023722494999090706,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,JP,avg_ic,-0.037801437304732385,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,KR,avg_ic,0.012599261396423905,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,SG,avg_ic,0.021524409260347894,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,TW,avg_ic,-0.013499477230841215,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,APAC,avg_ic,0.004684477106474061,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,CN,q5_q1_mean,-0.0039956422376081725,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,HK,q5_q1_mean,-0.0032190823334265453,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,IN,q5_q1_mean,-0.0043183254464512965,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,JP,q5_q1_mean,-0.013342920540395079,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,KR,q5_q1_mean,-0.006958510538585542,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,SG,q5_q1_mean,-0.01662565387693792,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,TW,q5_q1_mean,-0.01748302175653888,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,LOWRISK,APAC,q5_q1_mean,-0.009420450961420492,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom10,-,APAC,eligible_names,33823.0,ROBUSTNESS,ok,"fixed monthly cutoff, no Sharpe tuning"
+liquidity_cutoff,liq_bottom20_primary,MOM,CN,avg_ic,0.03227631953644857,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,HK,avg_ic,0.05211690559439747,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,IN,avg_ic,0.024027025241178803,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,JP,avg_ic,0.029905021646922374,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,KR,avg_ic,0.031122813412513557,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,SG,avg_ic,0.025237727521053667,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,TW,avg_ic,0.0375917098878626,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,APAC,avg_ic,0.03312806046078563,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,CN,q5_q1_mean,0.0036122826308942328,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,HK,q5_q1_mean,0.008670426440482864,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,IN,q5_q1_mean,-0.000987415532167124,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,JP,q5_q1_mean,0.0034192962872405283,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,KR,q5_q1_mean,0.010984316246233588,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,SG,q5_q1_mean,0.018033369283782272,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,TW,q5_q1_mean,0.014597546253067313,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,MOM,APAC,q5_q1_mean,0.00833283165850481,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,CN,avg_ic,0.020859594291949595,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,HK,avg_ic,0.027324430630880244,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,IN,avg_ic,-0.0011263020051179118,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,JP,avg_ic,-0.0417688015061847,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,KR,avg_ic,-0.0016761746098470365,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,SG,avg_ic,0.026849454801276502,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,TW,avg_ic,-0.014481207780435393,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,APAC,avg_ic,0.00216313920024853,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,CN,q5_q1_mean,-0.0041793927680581575,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,HK,q5_q1_mean,-0.005139962936223046,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,IN,q5_q1_mean,-0.004710935109645784,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,JP,q5_q1_mean,-0.014207308947899745,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,KR,q5_q1_mean,-0.00834687911118823,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,SG,q5_q1_mean,-0.007388603774370493,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,TW,q5_q1_mean,-0.017259314612216827,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,LOWRISK,APAC,q5_q1_mean,-0.008747485322800327,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom20_primary,-,APAC,eligible_names,30125.0,ROBUSTNESS,ok,"fixed monthly cutoff, no Sharpe tuning"
+liquidity_cutoff,liq_bottom40,MOM,CN,avg_ic,0.02617439856105922,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,HK,avg_ic,0.061830324884559036,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,IN,avg_ic,0.02569618272841051,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,JP,avg_ic,0.017598567135459292,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,KR,avg_ic,0.031995367690181485,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,SG,avg_ic,0.013455477104661964,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,TW,avg_ic,0.036139163256740145,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,APAC,avg_ic,0.030303403204082886,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,CN,q5_q1_mean,0.0010307790161955836,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,HK,q5_q1_mean,0.008587094385888677,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,IN,q5_q1_mean,4.2765323550535225e-06,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,JP,q5_q1_mean,-3.5374296615080564e-05,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,KR,q5_q1_mean,0.012974442729127941,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,SG,q5_q1_mean,0.013460883993448195,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,TW,q5_q1_mean,0.017547961377691185,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,MOM,APAC,q5_q1_mean,0.007652866248298793,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,CN,avg_ic,0.022659616461490378,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,HK,avg_ic,0.04066620306312414,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,IN,avg_ic,0.001108156028368795,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,JP,avg_ic,-0.03569465671998335,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,KR,avg_ic,-0.013077167371375516,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,SG,avg_ic,0.04401109042647466,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,TW,avg_ic,-0.026548528336655778,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,APAC,avg_ic,0.004622639600691332,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,CN,q5_q1_mean,-0.002378785427189602,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,HK,q5_q1_mean,-0.0016866489902019706,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,IN,q5_q1_mean,-0.006821911181240709,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,JP,q5_q1_mean,-0.012496307286590153,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,KR,q5_q1_mean,-0.012604739560182474,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,SG,q5_q1_mean,-0.007027841503842327,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,TW,q5_q1_mean,-0.01666569776869569,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,LOWRISK,APAC,q5_q1_mean,-0.008525990245420419,ROBUSTNESS,ok,
+liquidity_cutoff,liq_bottom40,-,APAC,eligible_names,22600.0,ROBUSTNESS,ok,"fixed monthly cutoff, no Sharpe tuning"
+quintile_weighting,weight_equal,MOM,APAC,gross_cagr,0.37131206597944244,ROBUSTNESS,ok,equal-weight benchmark within top quintile
+quintile_weighting,weight_equal,MOM,APAC,net15_cagr,0.3651858204260774,ROBUSTNESS,ok,equal-weight benchmark within top quintile
+quintile_weighting,weight_equal,MOM,APAC,mean_turnover,0.23702473237356958,ROBUSTNESS,ok,
+quintile_weighting,weight_liquidity,MOM,APAC,gross_cagr,0.3022800544023685,ROBUSTNESS,ok,"liquidity-aware weighting is a SENSITIVITY, not a recommended factor"
+quintile_weighting,weight_liquidity,MOM,APAC,net15_cagr,0.2951014652507009,ROBUSTNESS,ok,"liquidity-aware weighting is a SENSITIVITY, not a recommended factor"
+quintile_weighting,weight_liquidity,MOM,APAC,mean_turnover,0.2918098810158036,ROBUSTNESS,ok,
+quintile_weighting,weight_equal,LOWRISK,APAC,gross_cagr,0.1282204925097552,ROBUSTNESS,ok,equal-weight benchmark within top quintile
+quintile_weighting,weight_equal,LOWRISK,APAC,net15_cagr,0.12279794597208826,ROBUSTNESS,ok,equal-weight benchmark within top quintile
+quintile_weighting,weight_equal,LOWRISK,APAC,mean_turnover,0.2568106312292359,ROBUSTNESS,ok,
+quintile_weighting,weight_liquidity,LOWRISK,APAC,gross_cagr,0.13831819124123945,ROBUSTNESS,ok,"liquidity-aware weighting is a SENSITIVITY, not a recommended factor"
+quintile_weighting,weight_liquidity,LOWRISK,APAC,net15_cagr,0.1317760137512165,ROBUSTNESS,ok,"liquidity-aware weighting is a SENSITIVITY, not a recommended factor"
+quintile_weighting,weight_liquidity,LOWRISK,APAC,mean_turnover,0.31007826983979264,ROBUSTNESS,ok,
+developed_emerging,developed,MOM,APAC,avg_ic,0.035753218254124496,ROBUSTNESS,ok,
+developed_emerging,developed,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+developed_emerging,developed,MOM,APAC,q5_q1_mean,0.010041030670501888,ROBUSTNESS,ok,
+developed_emerging,developed,LOWRISK,APAC,avg_ic,0.0041350279753240154,ROBUSTNESS,ok,
+developed_emerging,developed,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+developed_emerging,developed,LOWRISK,APAC,q5_q1_mean,-0.008911958552831094,ROBUSTNESS,ok,
+developed_emerging,developed,-,APAC,market_coverage,3.0,ROBUSTNESS,ok,markets: JP/HK/SG
+developed_emerging,emerging,MOM,APAC,avg_ic,0.031207324000746918,ROBUSTNESS,ok,
+developed_emerging,emerging,MOM,APAC,ic_months,188.0,ROBUSTNESS,ok,
+developed_emerging,emerging,MOM,APAC,q5_q1_mean,0.007051682399507002,ROBUSTNESS,ok,
+developed_emerging,emerging,LOWRISK,APAC,avg_ic,0.000485383383249962,ROBUSTNESS,ok,
+developed_emerging,emerging,LOWRISK,APAC,ic_months,188.0,ROBUSTNESS,ok,
+developed_emerging,emerging,LOWRISK,APAC,q5_q1_mean,-0.00862413040027725,ROBUSTNESS,ok,
+developed_emerging,emerging,-,APAC,market_coverage,4.0,ROBUSTNESS,ok,markets: CN/IN/KR/TW
+developed_emerging,emerging,CN,CN,beta_ivol,,ROBUSTNESS,na,CN beta/IVOL NA (one-row benchmark)
+period_split,period_2016_2019,MOM,APAC,avg_ic,-0.0027703765363359446,ROBUSTNESS,ok,
+period_split,period_2016_2019,MOM,APAC,ic_months,48.0,ROBUSTNESS,ok,
+period_split,period_2016_2019,MOM,APAC,q5_q1_mean,-0.0002840968549668081,ROBUSTNESS,ok,
+period_split,period_2016_2019,LOWRISK,APAC,avg_ic,-0.04065696664723093,ROBUSTNESS,ok,
+period_split,period_2016_2019,LOWRISK,APAC,ic_months,48.0,ROBUSTNESS,ok,
+period_split,period_2016_2019,LOWRISK,APAC,q5_q1_mean,-0.010645703950704449,ROBUSTNESS,ok,
+period_split,period_2020_2025,MOM,APAC,avg_ic,0.0558003319926986,ROBUSTNESS,ok,
+period_split,period_2020_2025,MOM,APAC,ic_months,72.0,ROBUSTNESS,ok,
+period_split,period_2020_2025,MOM,APAC,q5_q1_mean,0.015370198976271812,ROBUSTNESS,ok,
+period_split,period_2020_2025,LOWRISK,APAC,avg_ic,0.016030426490681794,ROBUSTNESS,ok,
+period_split,period_2020_2025,LOWRISK,APAC,ic_months,72.0,ROBUSTNESS,ok,
+period_split,period_2020_2025,LOWRISK,APAC,q5_q1_mean,-0.009268120508041612,ROBUSTNESS,ok,
+survivor_sensitivity,full_7mkt,Composite,APAC,avg_ic,0.02343180704163813,ROBUSTNESS,ok,full 7-market sample
+survivor_sensitivity,full_7mkt,Composite,APAC,ic_months,188.0,ROBUSTNESS,ok,full 7-market sample
+survivor_sensitivity,full_7mkt,Composite,APAC,q5_q1_mean,0.0011822370633758415,ROBUSTNESS,ok,full 7-market sample
+survivor_sensitivity,ex_survivor_CN_HK,Composite,APAC,avg_ic,0.042988597931025906,ROBUSTNESS,ok,retains only CN/HK; both have 0/N delisting coverage so this does NOT cure survivorship
+survivor_sensitivity,ex_survivor_CN_HK,Composite,APAC,ic_months,188.0,ROBUSTNESS,ok,retains only CN/HK; both have 0/N delisting coverage so this does NOT cure survivorship
+survivor_sensitivity,ex_survivor_CN_HK,Composite,APAC,q5_q1_mean,0.0008823321957853705,ROBUSTNESS,ok,retains only CN/HK; both have 0/N delisting coverage so this does NOT cure survivorship
+survivor_sensitivity,ex_survivor_CN_HK,CN,CN,delisting_coverage,,ROBUSTNESS,na,CN/HK delisting coverage 0/34 (0/N); survivorship NOT cured
+survivor_sensitivity,ex_survivor_CN_HK,HK,HK,delisting_coverage,,ROBUSTNESS,na,CN/HK delisting coverage 0/38 (0/N); survivorship NOT cured
+country_leave_one_out,leaveout_none,Composite,APAC,net15_cagr,0.14059323560322112,ROBUSTNESS,ok,all markets; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_CN,Composite,APAC,net15_cagr,0.14030301321168515,ROBUSTNESS,ok,excludes CN; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_HK,Composite,APAC,net15_cagr,0.14971094020394826,ROBUSTNESS,ok,excludes HK
+country_leave_one_out,leaveout_IN,Composite,APAC,net15_cagr,0.14886127040766461,ROBUSTNESS,ok,excludes IN
+country_leave_one_out,leaveout_JP,Composite,APAC,net15_cagr,0.15029314399869764,ROBUSTNESS,ok,excludes JP
+country_leave_one_out,leaveout_KR,Composite,APAC,net15_cagr,0.12350459150681892,ROBUSTNESS,ok,excludes KR
+country_leave_one_out,leaveout_SG,Composite,APAC,net15_cagr,0.14059323560322112,ROBUSTNESS,ok,excludes SG
+country_leave_one_out,leaveout_TW,Composite,APAC,net15_cagr,0.12818559500276994,ROBUSTNESS,ok,excludes TW
+country_leave_one_out,leaveout_none,1/N,APAC,net15_cagr,0.15916268600811834,ROBUSTNESS,ok,all markets; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_CN,1/N,APAC,net15_cagr,0.16405817786315846,ROBUSTNESS,ok,excludes CN; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_HK,1/N,APAC,net15_cagr,0.16923835333285675,ROBUSTNESS,ok,excludes HK
+country_leave_one_out,leaveout_IN,1/N,APAC,net15_cagr,0.16480024498916923,ROBUSTNESS,ok,excludes IN
+country_leave_one_out,leaveout_JP,1/N,APAC,net15_cagr,0.1587458676440845,ROBUSTNESS,ok,excludes JP
+country_leave_one_out,leaveout_KR,1/N,APAC,net15_cagr,0.15690136163031454,ROBUSTNESS,ok,excludes KR
+country_leave_one_out,leaveout_SG,1/N,APAC,net15_cagr,0.1532097017820666,ROBUSTNESS,ok,excludes SG
+country_leave_one_out,leaveout_TW,1/N,APAC,net15_cagr,0.14536279261044038,ROBUSTNESS,ok,excludes TW
+country_leave_one_out,leaveout_none,Optimized,APAC,net15_cagr,0.12546995127856775,ROBUSTNESS,ok,all markets; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_CN,Optimized,APAC,net15_cagr,0.12583977645449074,ROBUSTNESS,ok,excludes CN; CN benchmark missing (one-row)
+country_leave_one_out,leaveout_HK,Optimized,APAC,net15_cagr,0.1327045522334791,ROBUSTNESS,ok,excludes HK
+country_leave_one_out,leaveout_IN,Optimized,APAC,net15_cagr,0.13046064443382122,ROBUSTNESS,ok,excludes IN
+country_leave_one_out,leaveout_JP,Optimized,APAC,net15_cagr,0.12713366189775277,ROBUSTNESS,ok,excludes JP
+country_leave_one_out,leaveout_KR,Optimized,APAC,net15_cagr,0.11843444415426374,ROBUSTNESS,ok,excludes KR
+country_leave_one_out,leaveout_SG,Optimized,APAC,net15_cagr,0.11965944304152187,ROBUSTNESS,ok,excludes SG
+country_leave_one_out,leaveout_TW,Optimized,APAC,net15_cagr,0.12227796746958441,ROBUSTNESS,ok,excludes TW

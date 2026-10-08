@@ -1,0 +1,8 @@
+market,tax_type,rate,effective_from,implemented,notes
+CN,stamp duty on sales,5 bps sell-side,2023-08-28,months >= 2023-08,seller-side only
+HK,stamp duty,10 bps per side,2023-11-17,months >= 2023-11,both buy and sell
+IN,STT,0.1% delivery,,NO,no verified effective date -> not applied
+JP,finance transaction tax,abolished 0%,1999-04-01,NO,zero rate; no cost
+KR,securities transaction tax,~0.15% sell,,NO,no verified effective date -> not applied
+SG,stamp duty,0.2% buy,,NO,no verified effective date -> not applied
+TW,securities transaction tax,0.3% sell,,NO,no verified effective date -> not applied

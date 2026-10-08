@@ -1,0 +1,47 @@
+APAC Alpha-to-Portfolio - PUBLICATION_MANIFEST
+Format: SHA256  BYTES  PATH
+Manifest self row hash is labelled SELF to avoid self-hash recursion.
+
+f3673611b7d5871741d9a1442ba6d692b12305797b6bc396a3f9b791692862b5  193  .gitignore
+e95a1af80b16bfa5250e6862cb6ecccc1ff19d72b5a7493d2dff905370ae4806  3862  PUBLICATION_QC.md
+5e05ae0c41a6f36775e95824a66539842c7896eef338c92adcd57d580d81d482  4720  README.md
+62427cb0f8f7ce14391b64bcd5725f9ddc521e1c7ec5fe4200cbe6c88095871c  14068  docs/assets/css/site.css
+b0eb9b899647136653bc366394ef9b672d17c8a900fa4d132583ff0046d97f01  55247  docs/assets/figures/01_price_validity_by_market.png
+dfc8996449c3719a1dff91e2ff9830946b403533654668cd557b709f2ee731ad  71256  docs/assets/figures/05_return_coverage_by_month.png
+e31d8fe1d8f402b0200689ce61ada330e19e42ce7a1ca82bed570dfef40e4cc7  64405  docs/assets/figures/09_survivorship_flags.png
+8cfde5a9d1597286487f7c89aafd15671caf7021137262f01e197c845a5a11e4  113867  docs/assets/figures/12_signal_coverage_by_market.png
+3b6e15d45dbb7fca5bd2094291e961ddc5472cd887009e6009a56dab668d721f  4815814  docs/assets/js/plotly.min.js
+466e45a15c49b9709940f6cce5c77122b9dd5ded3093e429820a7344134f3e4a  124312  docs/assets/js/site-data.js
+67200c5997aaa32898421ca10c9462e51fff8fe90d0ab49fc7dddc99f6439d55  38437  docs/assets/js/site.js
+599a194ea68194d3e4e3bde3c17ab66bc9e65fadd258394c7f7a49734f2b6a42  11821  docs/audit/DATA_METHODOLOGY.md
+3d4ac41dcaf627ea93fce19824cab587bf7d6db3bedc5ded1d35a419a21dcc6c  3308  docs/audit/LITERATURE_MAPPING.md
+0525941ce4e1a58af37fe21a49525f6a139eae6c2bcc027fb343aaf24b272973  14897  docs/audit/METHODOLOGY_DATA_CLEANING.md
+213313a187619e598cbc94ecc8486b6824fac43309cb2e8d1e2ad09acedbfe5e  13755  docs/audit/METHODOLOGY_MAIN_TESTS.md
+be99237339f1e5839f9a0ca3baab755c0f03063c586919869e795328ff9a06e5  12620  docs/audit/SPECIFICATION_REGISTRY.csv
+0e110e6a8c352af027d09ff64a7f89083402f76d93b2da2e4c549e67feedfb73  81829  docs/code/acquire_and_audit.py
+7e04afd113f8b4aa52c067a81354535e6df06ff6fa2c634053eceb08c05a201a  20254  docs/code/build_site.py
+dd231977cb4b1e9a6fd96dd64c511ee4e8cb5fcdc96645038ccb44552d301f0f  66386  docs/code/clean_and_build_panel.py
+29cd8d11abe0ac55d5a85222bc2a687805346a881bf98f5fe23fb0365d13f7c6  112716  docs/code/run_main_tests.py
+6590436b5112a36fe723cf42b5bc0da555c84e627c4763210e7d0b40d4279289  28888  docs/code/test_site.py
+1d30a0138b3c9c47ba65c104790a627223ac2c63e3e2eb0d125e1067408ae7d8  60089  docs/index.html
+eae0f15d32b819fd1d4b3513c9dcca2691325ccfaf71cc9250e531042219adb1  3483  docs/methodology/literature.md
+85f2ac885574cf8c999e6d1cd47a97bce305ab6ed7ac1252eb19bd23f3d07570  13934  docs/methodology/methodology.md
+adab7e0b12d31eeff76998c9b6f0609a8d52fe85507b4e3dfffdbc78a4885671  2957  docs/reports/APAC_Alpha_to_Portfolio_Executive_Summary.md
+e48aff33ca5f89e6670b1dd2a8767440a18006ae96252f59ad88c542348103c2  19610  docs/reports/APAC_Alpha_to_Portfolio_Final_Report.md
+e89cb2e47ce4dfa680f049b4edf1dd5da72d1586204f2283e337ecb919b0a5e0  17197  docs/reports/cleaning_report.md
+aab3f3e2db4f93f936d029e62ef43fd5c6b80121180df049dfb3794ab1cad4ec  3037  docs/reports/data_acquisition_report.md
+a6001b2b52234e69f7f0f75989bb817401e99e67548d56986b97999abde2a24e  2834  docs/reports/data_source_matrix.csv
+880fcef095f2f417e318e7db753bb0344cb8a80417b905023c1ebeed5b43f092  441  docs/results/fama_macbeth/fm_pooled.csv
+90e24d6b35c78b1472b95211ece88e71d9e043287aa4d3c28b19b8d6dccc8ad3  141  docs/results/jkp_validation/aqr_status.csv
+1c00e1964340e7271b33bfb09a6ed41328bfa598fdc2b413af86972844bdb473  2271  docs/results/jkp_validation/jkp_momentum.csv
+53f1fa70c1eed06a06c1a6a5e8345765f2368aa7371ab09159f7731e82293f0b  20546  docs/results/oos/oos_portfolio_returns.csv
+58e4e6847d30db8a7938d3879dd6d74643e6061b4d84d883e88f728354ed2606  1209  docs/results/portfolio/final_apac_table.csv
+e3e8a40b3d169143e59d73846fb37e312a1c5d620e515847fd9f02e17b1036b8  19531  docs/results/robustness/robustness_summary.csv
+d132b37050c50f59c13639365fa9dcf077b73d53757ef0555c8051440cd2b465  3733  docs/results/signal_tests/ic_by_country.csv
+814013b30421fa5fd348541d76fabf721a87a0418c67c86e10c4cbe0aa7033cf  2845  docs/results/transaction_costs/cost_sensitivity.csv
+ffa86a7f4bee057a934688913c47b080d512c6570f914fb61309a6876ac160a9  599  docs/results/transaction_costs/tax_coverage.csv
+58e4e6847d30db8a7938d3879dd6d74643e6061b4d84d883e88f728354ed2606  1209  docs/tables/final_apac_table.csv
+SELF                                                              4517  PUBLICATION_MANIFEST.txt
+
+Total files: 40
+Total bytes: 5852838

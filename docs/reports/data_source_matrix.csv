@@ -1,0 +1,21 @@
+market,provider,data_type,endpoint,coverage_start,coverage_end,n_securities,license,status
+CN,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-09-30,34,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+HK,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,37,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+IN,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,29,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+JP,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,30,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+KR,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,30,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+SG,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,30,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+TW,yfinance,OHLCV+actions,yfinance.Ticker.history,2010-01-04,2026-10-07,30,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
+CN,baostock,OHLCV,baostock hist,2010-01-04,2026-09-30,34,"BaoStock - free, non-commercial educational use",OK
+CN,akshare,OHLCV,akshare hist,1993-11-19,2026-09-30,34,AKShare - open source wrapper; underlying exchange/Sina ToS apply,OK
+HK,akshare,OHLCV,akshare hist,1998-06-01,2026-10-06,38,AKShare - open source wrapper; underlying exchange/Sina ToS apply,OK
+CN,yfinance,benchmark,000300.SS,2026-09-30,2026-09-30,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+HK,yfinance,benchmark,^HSI,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+IN,yfinance,benchmark,^NSEI,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+JP,yfinance,benchmark,^N225,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+KR,yfinance,benchmark,^KS11,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+SG,yfinance,benchmark,^STI,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+TW,yfinance,benchmark,^TWII,2010-01-04,2026-10-07,1,Yahoo Finance ToS - personal/research use; redistribution restricted,OK(label=FALLBACK)
+ALL,JKP,country factors,jkpfactors-data S3,1986-01-31,2025-12-31,7,JKP Global Factor Data - CC BY-NC 4.0,OK
+JP/APAC,French,regional factors,French Data Library,1990-07-02,2026-08-31,3,"Kenneth R. French Data Library - academic use, cite Fama-French",OK
+ALL,yfinance,FX,FX pairs,2010-01-01,2026-10-07,7,Yahoo Finance ToS - personal/research use; redistribution restricted,OK
