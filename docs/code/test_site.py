@@ -570,6 +570,12 @@ def test_browser_smoke():
                 "[data-chart]",
                 "els=>els.filter(e=>e.querySelector('.plot .main-svg')).length")
             assert charts == 15, f"rendered charts: {charts}"
+            # desktop keeps the Plotly modebar available on at least one chart
+            desktop_modebars = page.eval_on_selector_all(
+                ".plot .modebar-container",
+                "els=>els.filter(e=>getComputedStyle(e).display!=='none'"
+                " && e.getClientRects().length>0).length")
+            assert desktop_modebars >= 1, f"desktop modebars visible: {desktop_modebars}"
             # annual heatmap: y = years (11 rows), z = years x ports (11 x 6)
             ann = page.eval_on_selector("#chart-annual .plot", "el=>({"
                                         "ylen: el.data[0].y.length,"
@@ -666,6 +672,16 @@ def test_browser_smoke():
                 "Math.max(document.documentElement.scrollWidth, document.body.scrollWidth)"
                 " - window.innerWidth")
             assert over <= 0, f"document overflow: {over}px"
+            # mobile hides every modebar after all charts render (640px CSS rule)
+            mob.evaluate(
+                "() => { for (const [node, render] of window.__siteCharts) {"
+                " node.dataset.rendered = '1'; render(); } }")
+            mob.wait_for_timeout(400)
+            mobile_modebars = mob.eval_on_selector_all(
+                ".plot .modebar-container",
+                "els=>els.map(e=>getComputedStyle(e).display)")
+            assert mobile_modebars, "no modebar containers found on mobile"
+            assert all(d == "none" for d in mobile_modebars), mobile_modebars
             assert not errors, errors
             # every rendered .table-scroll (static + JS-built) is a labelled focusable region
             scrolls = mob.eval_on_selector_all(

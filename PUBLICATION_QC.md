@@ -67,3 +67,34 @@ Check 6 detail (local HTTP server, Chromium):
 Check 7 detail: the authoritative file count and total byte size, including this QC file and
 the manifest, are recorded in `PUBLICATION_MANIFEST.txt`. No single file reaches 100 MB (the
 largest is the bundled `plotly.min.js` at ~4.6 MB).
+
+## Mobile modebar QA (post-fix)
+
+Change: inside the `@media (max-width: 640px)` block of `docs/assets/css/site.css`, every
+Plotly modebar is hidden with `.plot .modebar-container { display: none !important; }`.
+Desktop rendering is unchanged.
+
+Contract test additions in `docs/code/test_site.py` (Playwright, in `test_browser_smoke`):
+
+- Desktop (1280x900), after all 15 charts render: at least one `.plot .modebar-container`
+  is visible (display is not `none` and it has client rects).
+- Mobile (390x844), after all charts are force-rendered: every `.plot .modebar-container`
+  computes to `display: none`.
+
+Results (private working tree):
+
+- `tests/test_site.py`: 24/24 PASS (including `test_browser_smoke` with the new assertions).
+- `tests/test_main_empirical.py`: 37/37 PASS.
+- `node --check docs/assets/js/site-data.js` and `site.js`: PASS.
+
+Public `file://` verification of `GitHub_Public/docs/index.html` (Chromium, all charts
+force-rendered):
+
+- Desktop 1280x900: modebars visible 15/15, zero console/page errors.
+- Mobile 390x844: modebars visible 0/15 (all `display: none`), zero console/page errors.
+- Review captures: `.review/postfix_desktop_annual.png`, `.review/postfix_mobile_annual.png`
+  (the `.review/` directory is git-ignored).
+
+Scope: this post-fix change touches only `docs/assets/css/site.css`, the copied reference test
+`docs/code/test_site.py`, this QC file, and `PUBLICATION_MANIFEST.txt`. No research results,
+site payload, or rendered content changed. No commit or push was performed.

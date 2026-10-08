@@ -3,9 +3,9 @@ Format: SHA256  BYTES  PATH
 Manifest self row hash is labelled SELF to avoid self-hash recursion.
 
 f3673611b7d5871741d9a1442ba6d692b12305797b6bc396a3f9b791692862b5  193  .gitignore
-e95a1af80b16bfa5250e6862cb6ecccc1ff19d72b5a7493d2dff905370ae4806  3862  PUBLICATION_QC.md
+8797ba39a1eabad0d111e50ac93ec2192707f1c1f45e178165bbb53c7e7c8384  5379  PUBLICATION_QC.md
 5e05ae0c41a6f36775e95824a66539842c7896eef338c92adcd57d580d81d482  4720  README.md
-62427cb0f8f7ce14391b64bcd5725f9ddc521e1c7ec5fe4200cbe6c88095871c  14068  docs/assets/css/site.css
+9e2bb1a19f5ec751723e795adf6460d7fa41a6c7bb986ae878705a0c6051c9a2  14125  docs/assets/css/site.css
 b0eb9b899647136653bc366394ef9b672d17c8a900fa4d132583ff0046d97f01  55247  docs/assets/figures/01_price_validity_by_market.png
 dfc8996449c3719a1dff91e2ff9830946b403533654668cd557b709f2ee731ad  71256  docs/assets/figures/05_return_coverage_by_month.png
 e31d8fe1d8f402b0200689ce61ada330e19e42ce7a1ca82bed570dfef40e4cc7  64405  docs/assets/figures/09_survivorship_flags.png
@@ -22,7 +22,7 @@ be99237339f1e5839f9a0ca3baab755c0f03063c586919869e795328ff9a06e5  12620  docs/au
 7e04afd113f8b4aa52c067a81354535e6df06ff6fa2c634053eceb08c05a201a  20254  docs/code/build_site.py
 dd231977cb4b1e9a6fd96dd64c511ee4e8cb5fcdc96645038ccb44552d301f0f  66386  docs/code/clean_and_build_panel.py
 29cd8d11abe0ac55d5a85222bc2a687805346a881bf98f5fe23fb0365d13f7c6  112716  docs/code/run_main_tests.py
-6590436b5112a36fe723cf42b5bc0da555c84e627c4763210e7d0b40d4279289  28888  docs/code/test_site.py
+9c5abe4dbeffa0a6a2015dc1957fd8383adb45d8ed5682d5d301bd19fd259154  29897  docs/code/test_site.py
 1d30a0138b3c9c47ba65c104790a627223ac2c63e3e2eb0d125e1067408ae7d8  60089  docs/index.html
 eae0f15d32b819fd1d4b3513c9dcca2691325ccfaf71cc9250e531042219adb1  3483  docs/methodology/literature.md
 85f2ac885574cf8c999e6d1cd47a97bce305ab6ed7ac1252eb19bd23f3d07570  13934  docs/methodology/methodology.md
@@ -44,4 +44,4 @@ ffa86a7f4bee057a934688913c47b080d512c6570f914fb61309a6876ac160a9  599  docs/resu
 SELF                                                              4517  PUBLICATION_MANIFEST.txt
 
 Total files: 40
-Total bytes: 5852838
+Total bytes: 5855421

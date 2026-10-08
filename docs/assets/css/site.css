@@ -277,6 +277,7 @@ a:focus-visible, button:focus-visible, select:focus-visible,
   .kpi-value { font-size: 1.25rem; }
   .chart { padding: 0.9rem 0.85rem 0.8rem; }
   .plot { min-height: 280px; }
+  .plot .modebar-container { display: none !important; }
   .equation { font-size: 1rem; line-height: 1.9; }
   .variable-list { font-size: 0.8rem; }
   .site-nav .wrap { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
